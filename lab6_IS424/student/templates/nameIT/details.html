@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% comment %} <link rel="stylesheet" href="style.css"> {% endcomment %}
+        <title>add</title>
+    </head>
+<body>
+    <h1>hello {{student.fname}}</h1>
+    <section>
+        {{student}}
+          <form action="{% url "lab6:enrollInCoures" id %}" method="POST">
+            {% csrf_token %}
+              <select name="course">
+                  {% for c in notRegisteredCourse %}
+                      <option value="{{c.pk}}"> {{ c }}</option>
+                  {% endfor %}
+              </select>
+              <input type="submit" value="Add Course">
+             
+          </form>
+          <ul>
+             {% for c in registeredcourses %}
+                 <li> {{ c }}</li>
+             {% endfor %}
+          </ul>
+      </section>
+      
+    <a href="{% url 'lab6:students'%}">ALL STUDENTS</a>
+    <br></br>
+    <a href="{% url 'lab6:courses'%}">ALL courses</a> 
+    
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% comment %} <link rel="stylesheet" href="style.css"> {% endcomment %}
+        <title>add</title>
+    </head>
+<body>
+    <h1>students</h1>
+    <form action="{% url 'lab6:courses' %}" method="post">
+        {% csrf_token %}
+        <label for="name">course name:</label>
+        <input type="text" name="cname">
+
+        <label for="ID">course ID:</label>
+        <input type="text" name="cID">
+
+        <label for="name">requirements:</label>
+        <input type="text" name="requirements">
+        <br></br>
+    <input type="SUBMIT">
+    </form>
+    <a href="{% url 'lab6:students'%}">ADD STUDENTS</a> 
+    
+</body>
+</html>

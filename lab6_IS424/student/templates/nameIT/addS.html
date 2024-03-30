@@ -1,0 +1,38 @@
+{% comment %} <a href="{% url "details" student.id %}"student {{student.id}}</a>>{% endcomment %}
+<!DOCTYPE html> 
+<html>
+    <head>
+        {% comment %} <link rel="stylesheet" href="style.css"> {% endcomment %}
+        <title>add student</title>
+    </head>
+<body>
+    <h1>hiiiiiii!!!!!!!!!!!!!!!!!!!!! </h1>
+    <ul>
+        {%for student in students%}
+        <li><a href="{% url "lab6:details" student.id %}"> studentPK {{student.id}}</a>, full name: {{student.fname}} {{student.Lname}}
+            , gpa {{student.gpa}}, ID: {{student.sid}}</li>
+        {% endfor %}
+    </ul>        
+
+    <br></br>
+    <form action="{% url 'lab6:students' %}" method="POST">
+        {% csrf_token %}
+        {{form}}
+        
+        <br></br>
+    <input type="SUBMIT">
+    </form>
+ <a href="{% url 'lab6:courses'%}">ADD courses</a> 
+</body>
+</html>
+{% comment %} <label for="text">first name:</label>
+        <input type="text" name="firstname">
+
+        <label for="text">last name:</label>
+        <input type="text" name="lastname">
+
+        <label for="text">ID:</label>
+        <input type="text" name="ID">
+
+        <label for="text">GPA:</label>
+        <input type="text" name="GPA"> {% endcomment %}
